@@ -26,7 +26,7 @@ Installing Mysql Container:
 
 docker pull mysql
 
-docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -p 3305:3306 -d mysql:latest
+docker run -p 3305:3306 --name mysql-container -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=test mysql
 
 docker exec -it mysql-container bash
 
