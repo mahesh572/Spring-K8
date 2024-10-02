@@ -19,3 +19,19 @@ docker tag spring-k8-eureka 8357/spring-k8-eureka:1.0.0
 docker push 8357/spring-k8-eureka:1.0.0
 
 docker run --name spring-eureka -p 8000:8761 -d 8357/spring-k8-eureka:1.0.0 
+
+
+Installing Mysql Container:
+------------------------------
+
+docker pull mysql
+
+docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -p 3305:3306 -d mysql:latest
+
+docker exec -it mysql-container bash
+
+mysql -u root -p root
+
+show databases;
+
+ create database productdb;
