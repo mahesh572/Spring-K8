@@ -1,1 +1,42 @@
 
+docker compose up
+
+Test Mysql DB is running and able to connect from your local system.
+PORT : 3305
+HOST : localhost
+
+Eureka Server is Up and hit this http://localhost:8700/
+
+
+Post Man
+----------------
+http://localhost:8080/product   -----  POST Method
+
+request Payload :
+    {
+    "name":"pr-1",
+    "price":"9999",
+    "quantity":"30"
+    
+}
+
+http://localhost:8081/payment  -----  POST Method
+
+request Payload :
+{
+    "amount":"1000",
+    "referenceNumber":"9999",
+    "paymentMode":"CASH"
+    
+}
+
+http://localhost:8082/order/placeorder  -----  POST Method
+
+request Payload :
+{
+    "productId":"12",
+    "totalAmount":"1000",
+    "quantity":"12"
+    
+}
+
