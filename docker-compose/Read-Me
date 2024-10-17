@@ -34,7 +34,8 @@ request Payload :
 {
     "amount":"1000",
     "referenceNumber":"9999",
-    "paymentMode":"CASH"
+    "paymentMode":"CASH",
+    "orderId":"2"
     
 }
 
