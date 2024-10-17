@@ -58,7 +58,7 @@ public class OrderController {
     public String getHealthcheck() {
     	String response = "";
     	try {
-			 response = "Hello this order - V3  -" + InetAddress.getLocalHost().getHostName();
+			 response = "Hello this order - V2  -" + InetAddress.getLocalHost().getHostName();
 		} catch (UnknownHostException e) {
 			log.error(e);
 		}
