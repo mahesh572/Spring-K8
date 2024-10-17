@@ -11,7 +11,7 @@ spring:
     hibernate:
       ddl-auto: update
   application:
-    name: PRODUCT-SERVICE
+    name: product-service
 #  autoconfigure:
 #    exclude:
 #    - org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration
@@ -25,8 +25,7 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://${EUREKA_HOST_NAME:localhost}:8761/eureka
-  instance:
-    hostname: ${EUREKA_HOST_NAME:localhost}    
+   
 
         
       

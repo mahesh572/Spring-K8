@@ -12,7 +12,7 @@ spring:
     hibernate:
       ddl-auto: update
   application:
-    name: ORDER-SERVICE
+    name: order-service
     
 eureka:
   client:
@@ -20,6 +20,5 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://${EUREKA_HOST_NAME:localhost}:8761/eureka
-  instance:
-    hostname: ${EUREKA_HOST_NAME:localhost}  
+  
    
