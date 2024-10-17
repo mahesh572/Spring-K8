@@ -1,5 +1,8 @@
 package com.payment.controller;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @RestController
-@RequestMapping("/payment")
+@RequestMapping("/payments")
 @RequiredArgsConstructor
 @Log4j2
 public class PaymentController {
@@ -48,5 +51,16 @@ public class PaymentController {
                 paymentService.getPaymentDetailsByOrderId(orderId),
                 HttpStatus.OK
         );
+    }
+    
+    @GetMapping("/payment/health")
+    public String getHealthcheck() {
+    	String response = "";
+    	try {
+			 response = "Hello Payment - V2  -" + InetAddress.getLocalHost().getHostName();
+		} catch (UnknownHostException e) {
+			log.error(e);
+		}
+    	return response;
     }
 }

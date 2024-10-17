@@ -1,6 +1,9 @@
 package com.order.controller;
 
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +21,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @RestController
-@RequestMapping("/order")
+@RequestMapping("/orders")
 @Log4j2
 @RequiredArgsConstructor
 public class OrderController {
@@ -49,5 +52,16 @@ public class OrderController {
 
         return new ResponseEntity<>(orderResponse,
                 HttpStatus.OK);
+    }
+    
+    @GetMapping("/order/health")
+    public String getHealthcheck() {
+    	String response = "";
+    	try {
+			 response = "Hello this order - V3  -" + InetAddress.getLocalHost().getHostName();
+		} catch (UnknownHostException e) {
+			log.error(e);
+		}
+    	return response;
     }
 }

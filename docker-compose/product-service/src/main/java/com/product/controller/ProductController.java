@@ -1,5 +1,7 @@
 package com.product.controller;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,14 +28,14 @@ import lombok.extern.log4j.Log4j2;
 
 @RequiredArgsConstructor
 @Log4j2
-@RequestMapping("/product")
+@RequestMapping("/products")
 @RestController
 public class ProductController {
 	
 	@Autowired
 	private final ProductService productService;
 	
-	@GetMapping
+	@GetMapping("/all")
 	public ResponseEntity<List<Product>> getAllProducts() {
 		
 		return new ResponseEntity<>(productService.getAllproducts(), HttpStatus.CREATED);
@@ -50,7 +52,7 @@ public class ProductController {
         return new ResponseEntity<>(productId, HttpStatus.CREATED);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/product/{id}")
     public ResponseEntity<ProductResponse> getProductById(@PathVariable("id") long productId) {
 
         log.info("ProductController | getProductById is called");
@@ -77,11 +79,21 @@ public class ProductController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/product/{id}")
     public void deleteProductById(@PathVariable("id") long productId) {
         productService.deleteProductById(productId);
         
     }
     
+    @GetMapping("/health")
+    public String getHealthcheck() {
+    	String response = "";
+    	try {
+			 response = "Hello this product - V2  -" + InetAddress.getLocalHost().getHostName();
+		} catch (UnknownHostException e) {
+			log.error(e);
+		}
+    	return response;
+    }
     
 }

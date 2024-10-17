@@ -94,14 +94,14 @@ public class OrderServiceImpl implements OrderService {
         log.info("OrderServiceImpl | getOrderDetails | Invoking Product service to fetch the product for id: {}", order.getProductId());
         ProductResponse productResponse
                 = restTemplate.getForObject(
-                "http://PRODUCT-SERVICE/product/" + order.getProductId(),
+                "http://PRODUCT-SERVICE/products/product/" + order.getProductId(),
                 ProductResponse.class
         );
 
         log.info("OrderServiceImpl | getOrderDetails | Getting payment information form the payment Service");
         PaymentResponse paymentResponse
                 = restTemplate.getForObject(
-                "http://PAYMENT-SERVICE/payment/order/" + order.getId(),
+                "http://PAYMENT-SERVICE/payments/order/" + order.getId(),
                 PaymentResponse.class
         );
 
