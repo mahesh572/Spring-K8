@@ -24,7 +24,11 @@ http://localhost:8080/products/all  ---  GET Method
 
 http://localhost:8080/products/health  --- GET Method
 
-http://localhost:8081/payment  -----  POST Method
+PayMent Module
+------------------------------
+http://localhost:8081/payments  -----  POST Method
+
+http://localhost:8081/payments/payment/health  ----  GET Method
 
 request Payload :
 {
@@ -33,6 +37,9 @@ request Payload :
     "paymentMode":"CASH"
     
 }
+
+Order Module
+---------------------------
 
 http://localhost:8082/orders/placeorder  -----  POST Method
 
