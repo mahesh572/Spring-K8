@@ -19,14 +19,14 @@ spring:
 
 #while running this container, MYSQL_HOST,MYSQL_HOST - env values shold be provided
 
-#eureka:
-#  client:
-#    register-with-eureka: false
-#    fetch-registry: false
-#    service-url:
-#      defaultZone: http://localhost:8761/eureka
-      
 eureka:
   client:
     register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://${EUREKA_HOST_NAME:localhost}:8761/eureka
+  instance:
+    hostname: ${EUREKA_HOST_NAME:localhost}    
+
+        
       

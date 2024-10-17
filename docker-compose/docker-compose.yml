@@ -14,7 +14,7 @@ services:
             - spring-network      
     
     eureka:
-        container_name: eureka
+        container_name: eureka-server
         hostname: eureka-server
         image: 8357/spring-k8-eureka:1.0.0
         restart: always 
@@ -33,6 +33,7 @@ services:
             - MYSQL_PORT=3306
             - MYSQL_USER=root
             - MYSQL_PASSWORD=root
+            - EUREKA_HOST_NAME=eureka-server
         ports:
             - 8080:8080      
         networks:
