@@ -10,7 +10,7 @@ Eureka Server is Up and hit this http://localhost:8700/
 
 Post Man
 ----------------
-http://localhost:8080/product   -----  POST Method
+http://localhost:8080/products   -----  POST Method
 
 request Payload :
     {
@@ -20,7 +20,15 @@ request Payload :
     
 }
 
-http://localhost:8081/payment  -----  POST Method
+http://localhost:8080/products/all  ---  GET Method
+
+http://localhost:8080/products/health  --- GET Method
+
+PayMent Module
+------------------------------
+http://localhost:8081/payments  -----  POST Method
+
+http://localhost:8081/payments/payment/health  ----  GET Method
 
 request Payload :
 {
@@ -30,7 +38,10 @@ request Payload :
     
 }
 
-http://localhost:8082/order/placeorder  -----  POST Method
+Order Module
+---------------------------
+
+http://localhost:8082/orders/placeorder  -----  POST Method
 
 request Payload :
 {
@@ -39,4 +50,4 @@ request Payload :
     "quantity":"12"
     
 }
-
+http://localhost:8082/orders/order/health   ---- GET Method
