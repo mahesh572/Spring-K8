@@ -37,7 +37,7 @@ public class ProductController {
 	
 	@GetMapping("/all")
 	public ResponseEntity<List<Product>> getAllProducts() {
-		
+		log.info("ProductController | getAll producr method is called@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@!!!!!!!!!!!!!!!");
 		return new ResponseEntity<>(productService.getAllproducts(), HttpStatus.CREATED);
 	}
 
